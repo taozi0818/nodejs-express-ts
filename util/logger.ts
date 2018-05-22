@@ -1,5 +1,10 @@
-import * as logger from 'log4js';
+import { getLogger } from 'log4js';
 
-export default (logTitle) => {
-  return logger.getLogger(logTitle);
-}
+const createLogger = (logTitle) => {
+  const logger = getLogger(logTitle);
+  logger.level = 'debug';
+
+  return logger;
+};
+
+export default createLogger;

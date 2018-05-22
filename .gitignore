@@ -1,0 +1,24 @@
+# IDE
+.idea/
+.vscode/
+.project/
+.workspace/
+
+# Dependencies
+node_modules/
+
+# Docs for API
+/docs/index.md
+/public/docs/index.html
+
+# Test demo for upload
+/tmp
+
+# Static Data
+/public/data/images/
+
+# Config for Developer
+development.json
+
+# For build
+build/
