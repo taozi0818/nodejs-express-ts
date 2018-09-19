@@ -21,4 +21,4 @@ node_modules/
 development.json
 
 # For build
-build/
+dist/

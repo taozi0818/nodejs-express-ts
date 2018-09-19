@@ -1,16 +1,19 @@
 {
   "compilerOptions": {
-    "outDir": "./build",
+    "outDir": "./dist",
     "allowJs": true,
     "module": "commonjs",
     "sourceMap": true,
-    "target": "es5"
+    "target": "es6",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "lib": ["ES2015"],
+    "skipLibCheck": true
   },
   "include": [
-    "./src/**/*",
-    "./app.ts",
-    "./bin/*",
-    "./middleware/*",
-    "./util/*"
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

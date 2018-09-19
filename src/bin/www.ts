@@ -1,5 +1,6 @@
 import app from '../app';
 import createLogger from '../util/logger';
+import { sequelize } from '../db/sequelize';
 
 const then = require('thenjs');
 const logger = createLogger('Server');
@@ -10,7 +11,27 @@ const env: string = app.get('env');
   logger.error(err.message);
 });
 
-then(() => {
+then((defer) => {
+
+  sequelize.authenticate()
+    .then(() => {
+      defer();
+      return null;
+    }).catch((err: Error) => {
+    defer(err);
+  });
+
+}).then((defer) => {
+
+  sequelize.sync()
+    .then(() => {
+      defer();
+    }).catch((err: Error) => {
+    defer(err);
+  });
+
+}).then((defer) => {
+
   app.listen(port);
   logger.info(`Server is listening on ${port} port, environment is ${env || 'development'}`);
 }).fail((defer, err) => {
